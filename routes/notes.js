@@ -1,10 +1,16 @@
 var express = require('express');
 var router = express.Router();
+const cors = require('cors');
+require('dotenv').config();
+
 
 //接続情報の設定
 const{MongoClient} = require('mongodb');
-const uri = "mongodb+srv://DBizuru:izuru3k@cluster0.nrdk9ke.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
+
+//corsミドルウェアの使用
+router.use(cors());
 
 router.get('/', async (req, res) => {
 //データベース、コレクションを指定  

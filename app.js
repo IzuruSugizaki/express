@@ -10,6 +10,7 @@ var helloRouter = require('./routes/hello'); // New route for hello
 var notesRouter = require('./routes/notes'); // New route for notes
 var catRouter = require('./routes/cat'); // New route for cat images  
 var yesRouter = require('./routes/yes'); // Import the main app file
+var notes_from_bRouter = require('./routes/notes_from_b'); // Import the notes_from_b route
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use('/hello', helloRouter); // Use the new hello route
 app.use('/notes', notesRouter); // Use the new notes route
 app.use('/cat', catRouter); // Use the new cat route
 app.use('/yes', yesRouter); // Use the main app file
+app.use('/notes_from_b', notes_from_bRouter); // Use the notes_from_b route
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
